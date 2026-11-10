@@ -1,0 +1,24 @@
+500;600;700&display=swap');
+
+body {
+    background-color: whitesmoke;
+    font-family: 'Chakra Petch', 'Segoe UI', sans-serif !important;
+}
+
+.container {
+    max-width: 1140px;
+}
+
+.btn-default {
+    background-color: #1b6ec2;
+    color: white;
+}
+
+.btn-default:hover {
+    background-color: dodgerblue;
+    color: whitesmoke;
+}
+
+.key-sensi {
+    filter: blur(3px);
+}

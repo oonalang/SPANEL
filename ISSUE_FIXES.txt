@@ -1,0 +1,10 @@
+FreeSHAI fixes for freeshai.x10.mx
+
+- Keys: DataTables processes AJAX data again; page errors appear instead of an indefinite spinner.
+- Connect: passing the logged-in user to the shared header prevents the authenticated GET view crash.
+- Library: dark, legible mobile picker; app max 50 MB; meaningful PHP upload errors.
+- .user.ini requests 10 MB PHP uploads on free x10Hosting. Whether it works depends on host settings.
+- x10Hosting free plans remove stored files larger than 10MB; 50MB needs a hosting plan that permits files of this size.
+- If a 6MB upload still fails, use x10Hosting Extra Features > Select PHP Version > Options, set upload_max_filesize to 10M and post_max_size to 12M.
+- Backend changes preserve private library storage, per-user key isolation and existing license POST response.
+- This ZIP does not modify DNS, SSL, or hosting account PHP settings directly.

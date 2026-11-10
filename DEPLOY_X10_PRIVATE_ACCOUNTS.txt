@@ -1,0 +1,29 @@
+SHAI Panel private accounts release
+
+Upload and extract the ZIP inside the panel installation directory.
+Back up the existing database before changing the schema.
+For an existing installation, import sql/panel_private_accounts_migration.sql
+into the same database as the panel using phpMyAdmin's Import tab.
+For a fresh installation, import sql/panel_fresh_install.sql first.
+
+New accounts sign up without referrals, receive the Admin role (level 2),
+and have unlimited key-generation saldo. Account-owned keys, history,
+private libraries and catalog administration are separated.
+System-wide maintenance and user management remain limited to the original
+site Owner (level 1), so new admins cannot edit another user's account.
+
+Libraries upload through /lib and download through /lib/download, both
+requiring a valid session. Internal storage is writable/private_libraries/
+<account id>/lib.so, stable for repeated uploads. Existing rows in the old
+shared `lib` table are not automatically assigned to any account.
+Legacy public catalog entries remain public and read-only; new entries are
+private to their creator.
+
+If you previously posted your database password in a screenshot, rotate it
+in DirectAdmin and update your local private .env file before going live.
+
+Legacy direct PHP mutation endpoints are disabled to prevent bypassing
+account ownership checks. Use authenticated panel routes instead.
+The legacy shared lib table and old public Farlight files are not migrated
+into private user storage. Remove old public uploaded libs manually if you
+had published them previously and no longer want them publicly accessible.

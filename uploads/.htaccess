@@ -1,0 +1,5 @@
+<FilesMatch "^\.env">
+    Order allow,deny
+    Deny from all
+    ErrorDocument 403 /accessdenied.php
+</FilesMatch>

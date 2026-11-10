@@ -1,0 +1,42 @@
+Options -Indexes
+ServerSignature Off
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Prefer pointing the hosting document root at public/ instead.
+    # These directories must never be served when using the root fallback.
+    RewriteRule ^(?:app|vendor|writable|tests|sql|project-root|cgi-bin|\.git|\.github)(?:/|$) - [F,L,NC]
+    RewriteRule ^(?:uploads|\.well-known)/.*\.(?:php|phtml|phar|phps)$ - [F,L,NC]
+    RewriteRule ^(?:composer\.(?:json|lock)|phpunit\.xml(?:\.dist)?|spark|conn\.php|README\.md|ANALYSIS\.md|SECURITY\.md|Newkeys\.txt|.*\.(?:sql|bak|ini|log))$ - [F,L,NC]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+</IfModule>
+
+<FilesMatch "^(?:\.|.*\.(?:env|ini|log|bak|sql))">
+    Require all denied
+</FilesMatch>
+
+
+<FilesMatch "^(upload|del-lib-DB-Record|extend|EXTEND_KEYS_DURATIONS|DELETEREFF|Edit_Keygen_Links|DeleteHackingAttempt)\.php$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "\.(?:zip|tar|gz|7z|rar)$">
+    Require all denied
+</FilesMatch>
+
+# speed: compress text and let browsers keep static files
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json image/svg+xml
+</IfModule>
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 7 days"
+    ExpiresByType application/javascript "access plus 7 days"
+    ExpiresByType text/javascript "access plus 7 days"
+    ExpiresByType image/png "access plus 30 days"
+    ExpiresByType image/jpeg "access plus 30 days"
+    ExpiresByType image/svg+xml "access plus 30 days"
+    ExpiresByType font/woff2 "access plus 365 days"
+</IfModule>

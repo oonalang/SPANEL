@@ -1,0 +1,17 @@
+FreeSHAI assigned-library support
+
+Upload this project over your existing FreeSHAI application files.
+Keep the existing .env and conn.php on the host. This ZIP deliberately excludes both to protect live credentials.
+
+Required updated files:
+app/Controllers/LoaderCatalog.php
+app/Config/Routes.php
+app/Config/Filters.php
+
+Do not replace the database or delete the loader_catalog table.
+The same assigned-library route works with the existing SHAI Loader giveaway APK.
+
+The endpoint accepts POST to /loader/catalog/assigned.
+A GET request to this URL is not a valid test. Confirm the new route exists in CodeIgniter's route list, then test with a valid key in the Android loader.
+
+An ACTIVE catalog item must have owner_user_id matching the account which registered the license key, and game_type matching the key's game code.

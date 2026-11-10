@@ -1,0 +1,6 @@
+SHAI Panel PHP 8.2+/8.4 source release with /register HTTP 500 hotfix integrated.
+SOURCE: complete PHP panel including current SHAI Loader catalog + /connect handlers.
+DEPENDENCIES: vendor/ and composer.lock not included; generate with Composer 2 on PHP 8.2+ before deployment.
+TESTING: source syntax and isolated regression tests run; live hosting, database and full app runtime untested.
+CONFIGURATION: configure .env from .env.example, never copy old exposed passwords.
+SECURITY: legacy referrer-only root scripts are not security-reviewed; use public/ as web root.

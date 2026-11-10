@@ -1,0 +1,20 @@
+node_modules
+.idea
+.editorconfig
+
+# upstream repositories cloned for reference during analysis
+_repos/
+
+writable/session/*
+!writable/session/index.html
+writable/logs/*
+!writable/logs/index.html
+
+
+# Local environment files (never commit deployment secrets)
+.env
+.env.*
+!.env.example
+
+# Generated deploy artifacts (vendor bundle zip)
+/deploy/
